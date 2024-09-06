@@ -1,0 +1,95 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    flex: 1;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column; /* 垂直堆叠 */
+    justify-content: center; /* 居中对齐 */
+    align-items: center; /* 居中对齐 */
+    box-sizing: border-box;
+}
+
+.logo-and-title {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+
+.logo-and-title img {
+    width: 50px; /* 调整Logo大小 */
+    height: auto;
+    margin-right: 10px;
+}
+
+.site-title {
+    margin: 0; /* 移除默认的margin */
+    font-size: 2em; /* 调整标题大小 */
+}
+
+.navbar {
+    display: flex; /* 使用Flex布局 */
+    justify-content: center; /* 居中对齐 */
+    width: 100%; /* 宽度100%，以适应不同屏幕尺寸 */
+    margin-top: 10px; /* 给导航栏添加一些顶部间距 */
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* 确保列表项水平排列 */
+}
+
+.navbar li {
+    margin: 0 10px; /* 减少左右边距 */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ddd;
+}
+
+.hero-image {
+    width: 100%;
+    max-height: 300px; /* 根据需要调整 */
+    object-fit: cover; /* 保持原始纵横比填充容器 */
+}
+
+.description {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.description p {
+    line-height: 1.6;
+    font-size: 16px;
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

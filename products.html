@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>452</title>
+    <link rel="stylesheet" type="text/css" href="products.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="123.webp" alt="Logo">
+            <h1 class="site-title">Product</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="products.html">Product</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="news.html">News and Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container" id="products">
+        <div class="product">
+            <img src="1.png" class="product1img">
+            <p style="color: white;">HUAWEI P50 Pro---$10,000</p>
+            <button onclick="addToCart('HUAWEI P50 Pro', 10000)">Add to Cart</button>
+            <button onclick="showModal('HUAWEI P50 Pro')">View Details</button>
+        </div>
+        <div class="product">
+            <img src="2.jpg" class="product1img">
+            <p style="color: white;">HUAWEI Watch GT 2---$499</p>
+            <button onclick="addToCart('HUAWEI Watch GT 2', 499)">Add to Cart</button>
+            <button onclick="showModal('HUAWEI Watch GT 2')">View Details</button>
+        </div>
+        <div class="product">
+            <img src="3.jpeg" class="product1img">
+            <p style="color: white;">HUAWEI Watch GT 3 Pro---$699</p>
+            <button onclick="addToCart('HUAWEI Watch GT 3 Pro', 699)">Add to Cart</button>
+            <button onclick="showModal('HUAWEI Watch GT 3 Pro')">View Details</button>
+        </div>
+        <div class="product">
+            <img src="4.jpg" class="product1img">
+            <p style="color: white;">HUAWEI MateBook X Pro---$1888</p>
+            <button onclick="addToCart('HUAWEI MateBook X Pro', 1888)">Add to Cart</button>
+            <button onclick="showModal('HUAWEI MateBook X Pro')">View Details</button>
+        </div>
+        <div class="product">
+            <img src="5.webp" class="product1img">
+            <p style="color: white;">HUAWEI MateBook 14---$1999</p>
+            <button onclick="addToCart('HUAWEI MateBook 14', 1999)">Add to Cart</button>
+            <button onclick="showModal('HUAWEI MateBook 14')">View Details</button>
+        </div>
+        <div class="product">
+            <img src="6.jpg" class="product1img">
+            <p style="color: white;">HUAWEI MatePad Pro---$2499</p>
+            <button onclick="addToCart('HUAWEI MatePad Pro', 2499)">Add to Cart</button>
+            <button onclick="showModal('HUAWEI MatePad Pro')">View Details</button>
+        </div>
+        <div class="product">
+            <img src="7.jpg" class="product1img">
+            <p style="color: white;">HUAWEI MateBook 16---$2000</p>
+            <button onclick="addToCart('HUAWEI MateBook 16', 2000)">Add to Cart</button>
+            <button onclick="showModal('HUAWEI MateBook 16')">View Details</button>
+        </div>
+        <div class="product">
+            <img src="8.jpg" class="product1img">
+            <p style="color: white;">HUAWEI Card---$299</p>
+            <button onclick="addToCart('HUAWEI Card', 299)">Add to Cart</button>
+            <button onclick="showModal('HUAWEI Card')">View Details</button>
+        </div>
+        <div class="product">
+            <img src="9.webp" class="product1img">
+            <p style="color: white;">HUAWEI Education Tools---$5699</p>
+            <button onclick="addToCart('HUAWEI Education Tools', 5699)">Add to Cart</button>
+            <button onclick="showModal('HUAWEI Education Tools')">View Details</button>
+        </div>
+        <div class="product">
+            <img src="10.webp" class="product1img">
+            <p style="color: white;">HUAWEI MatePad---$1399</p>
+            <button onclick="addToCart('HUAWEI MatePad', 1399)">Add to Cart</button>
+            <button onclick="showModal('HUAWEI MatePad')">View Details</button>
+        </div>
+    </div>
+
+    <div id="cart" style="color: white; margin-top: 20px;">
+        <h2>Your Shopping Cart</h2>
+        <ul id="cartItems">
+        </ul>
+        <p>Total: <span id="totalPrice">0</span></p>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>Copyright © 2024 HUAWEI. Inc All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({name: name, price: price});
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsElement = document.getElementById('cartItems');
+            const totalPriceElement = document.getElementById('totalPrice');
+            
+            cartItemsElement.innerHTML = '';
+            let totalPrice = 0;
+            for (let item of cart) {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price}`;
+                cartItemsElement.appendChild(li);
+                totalPrice += item.price;
+            }
+            totalPriceElement.textContent = totalPrice;
+        }
+
+        function showModal(productName) {
+            switch (productName) {
+                case 'HUAWEI P50 Pro':
+                    document.getElementById('modalTitle').innerText = productName;
+                    document.getElementById('modalDescription').innerText = 'The latest flagship smartphone from HUAWEI with advanced camera technology.';
+                    break;
+                case 'HUAWEI Watch GT 2':
+                    document.getElementById('modalTitle').innerText = productName;
+                    document.getElementById('modalDescription').innerText = 'A smartwatch that offers long battery life and fitness tracking features.';
+                    break;
+                case 'HUAWEI Watch GT 3 Pro':
+                    document.getElementById('modalTitle').innerText = productName;
+                    document.getElementById('modalDescription').innerText = 'An upgraded version of the GT 2 with enhanced health monitoring capabilities.';
+                    break;
+                case 'HUAWEI MateBook X Pro':
+                    document.getElementById('modalTitle').innerText = productName;
+                    document.getElementById('modalDescription').innerText = 'A lightweight laptop designed for professionals.';
+                    break;
+                case 'HUAWEI MateBook 14':
+                    document.getElementById('modalTitle').innerText = productName;
+                    document.getElementById('modalDescription').innerText = 'A versatile laptop with a 14-inch display suitable for work and entertainment.';
+                    break;
+                case 'HUAWEI MatePad Pro':
+                    document.getElementById('modalTitle').innerText = productName;
+                    document.getElementById('modalDescription').innerText = 'A high-end tablet for productivity and creativity.';
+                    break;
+                case 'HUAWEI MateBook 16':
+                    document.getElementById('modalTitle').innerText = productName;
+                    document.getElementById('modalDescription').innerText = 'A large-screen laptop ideal for multimedia and gaming.';
+                    break;
+                case 'HUAWEI Card':
+                    document.getElementById('modalTitle').innerText = productName;
+                    document.getElementById('modalDescription').innerText = 'A payment card offering rewards and benefits.';
+                    break;
+                case 'HUAWEI Education Tools':
+                    document.getElementById('modalTitle').innerText = productName;
+                    document.getElementById('modalDescription').innerText = 'Educational software and hardware solutions.';
+                    break;
+                case 'HUAWEI MatePad':
+                    document.getElementById('modalTitle').innerText = productName;
+                    document.getElementById('modalDescription').innerText = 'A mid-range tablet for everyday use.';
+                    break;
+                default:
+                    document.getElementById('modalTitle').innerText = 'Product Not Found';
+                    document.getElementById('modalDescription').innerText = 'Sorry, we could not find information for this product.';
+                    break;
+            }
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                document.getElementById('myModal').style.display = "none";
+            }
+        };
+
+        document.querySelector('.close').addEventListener('click', () => {
+            document.getElementById('myModal').style.display = "none";
+        });
+    </script>
+</body>
+</html>
